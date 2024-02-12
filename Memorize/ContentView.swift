@@ -8,15 +8,38 @@
 import SwiftUI
 
 struct ContentView: View {
-    let emojis: [String] = ["👻", "💀", "🎃", "🕷️", "😈", "🕸️", "🧙🏽‍♀️", "🐈‍⬛", "👹", "😱", "☠️", "🍭"]
+    let christmas: [String] = ["🎄", "🎅🏽", "🎁", "🍪", "🥛", "❄️", "⛄️", "🦌", "🪄", "🦉", "🎄", "🎅🏽", "🎁", "🍪", "🥛", "❄️", "⛄️", "🦌", "🪄", "🦉"]
+    let animals: [String] = ["🐶", "🐱", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🐶", "🐱", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯"]
+    let halloween: [String] = ["👻", "💀", "🎃", "🕷️", "😈", "🕸️", "🧙🏽‍♀️", "🐈‍⬛", "👹", "😱", "☠️", "🍭","👻", "💀", "🎃", "🕷️", "😈", "🕸️", "🧙🏽‍♀️", "🐈‍⬛", "👹", "😱", "☠️", "🍭"]
+    @State var emojis: [String] = ["👻", "💀", "🎃", "🕷️", "😈", "🕸️", "🧙🏽‍♀️", "🐈‍⬛", "👹", "😱", "☠️", "🍭", "👻", "💀", "🎃", "🕷️", "😈", "🕸️", "🧙🏽‍♀️", "🐈‍⬛", "👹", "😱", "☠️", "🍭"]
     @State var cardCount: Int = 4
     var body: some View {
         VStack {
+            Text("Memorize")
+                .font(.largeTitle)
             ScrollView {
                 cards
             }
             Spacer()
             cardCountAdjusters
+            Button(action: {
+                emojis = animals.shuffled()
+            }, label: {
+                Image(systemName: "dog.fill")
+                Text("Animals").font(.subheadline)
+            })
+            Button(action: {
+                emojis = christmas.shuffled()
+            }, label: {
+                Image(systemName: "snowflake")
+                Text("Christmas").font(.subheadline)
+            })
+            Button(action: {
+                emojis = halloween.shuffled()
+            }, label: {
+                Image(systemName: "ant.circle.fill")
+                Text("Halloween").font(.subheadline)
+            })
         }
         .padding()
     }

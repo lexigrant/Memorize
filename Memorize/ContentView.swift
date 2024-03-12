@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    var viewModel: EmojiMemoryGame
     let christmas: [String] = ["🎄", "🎅🏽", "🎁", "🍪", "🥛", "❄️", "⛄️", "🦌", "🪄", "🦉", "🎄", "🎅🏽", "🎁", "🍪", "🥛", "❄️", "⛄️", "🦌", "🪄", "🦉"]
     let animals: [String] = ["🐶", "🐱", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🐶", "🐱", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯"]
     let halloween: [String] = ["👻", "💀", "🎃", "🕷️", "😈", "🕸️", "🧙🏽‍♀️", "🐈‍⬛", "👹", "😱", "☠️", "🍭","👻", "💀", "🎃", "🕷️", "😈", "🕸️", "🧙🏽‍♀️", "🐈‍⬛", "👹", "😱", "☠️", "🍭"]
@@ -82,7 +83,7 @@ struct CardView: View {
     @State var isFaceUp = false
     var body: some View {
         ZStack {
-            let base: RoundedRectangle = RoundedRectangle(cornerRadius: 12)
+            let base = RoundedRectangle(cornerRadius: 12)
             Group {
                 base.foregroundColor(.white)
                 base.strokeBorder(lineWidth: 2)

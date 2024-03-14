@@ -13,7 +13,7 @@ struct MemoryGame<CardContent> {
     init(numberOfPairOfCards: Int, cardContentFactory: (Int) -> CardContent) {
         cards = []
         // add numberOfPairsOfCards x 2 cards
-        for pairIndex in 0..<numberOfPairOfCards {
+        for pairIndex in 0..<max(2,numberOfPairOfCards) {
             let content = cardContentFactory(pairIndex)
             cards.append(Card(content: content))
             cards.append(Card(content: content))
@@ -24,8 +24,13 @@ struct MemoryGame<CardContent> {
         
     }
     
+    mutating func shuffle() {
+        cards.shuffle()
+        print(cards)
+    }
+    
     struct Card {
-        var isFaceUp = false
+        var isFaceUp = true
         var isMatched = false
         let content: CardContent
     }
